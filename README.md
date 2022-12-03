@@ -2,7 +2,7 @@
 
 Tarefas realizadas do Módulo 10 - Angular I da Let's Code - Turma 853 | Web Full Stack
 
-# Exercício de Fixação 1 - (exercise-1 - Entrega até 02/12/2022)
+# Exercício de Fixação 1 - (exercise-1 - Entrega até 03/12/2022)
 
 - Replicar o projeto em Angular feito em sala de aula (listagem de elementos);
 - Não usar a temática de Todo List, ou seja, pelo menos Model e Componentes deve estar diferentes;
