@@ -14,5 +14,11 @@ export class DogItemComponent {
     headerImg: '',
     srcImg: '',
     description: '',
+    visited: false,
   };
+
+  checkVisited(): void {
+    if (this.dog.visited) return;
+    this.dog.visited = true;
+  }
 }

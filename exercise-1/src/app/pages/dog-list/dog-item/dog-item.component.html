@@ -1,6 +1,6 @@
 <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
+  <mat-expansion-panel-header class="card-header" (click)="checkVisited()">
+    <mat-panel-title class="panel-title">
       <mat-card-header>
         <div
           mat-card-avatar
@@ -12,14 +12,16 @@
         <mat-card-title>{{ this.dog.title }}</mat-card-title>
         <mat-card-subtitle>{{ this.dog.subtitle }}</mat-card-subtitle>
       </mat-card-header>
+      <mat-icon *ngIf="this.dog.visited">visibility</mat-icon>
     </mat-panel-title>
   </mat-expansion-panel-header>
 
-  <mat-card class="example-card">
+  <mat-card>
     <img
       mat-card-image
       src="{{ this.dog.srcImg }}"
       alt="Photo of a {{ this.dog.title }}"
+      class="card-image"
     />
     <mat-card-content class="card-content">
       <p>

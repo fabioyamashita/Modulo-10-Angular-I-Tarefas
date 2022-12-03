@@ -4,4 +4,5 @@ export default interface Dog {
   headerImg: string;
   srcImg: string;
   description: string;
+  visited: boolean;
 }

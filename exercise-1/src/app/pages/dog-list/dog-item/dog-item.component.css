@@ -5,3 +5,18 @@
 .card-content {
   padding-top: 1rem;
 }
+
+.card-header {
+  padding: 1rem 0.5rem;
+}
+
+.card-image {
+  object-fit: cover;
+  max-height: 450px;
+  width: auto;
+}
+
+.panel-title {
+  display: flex;
+  justify-content: space-between;
+}
