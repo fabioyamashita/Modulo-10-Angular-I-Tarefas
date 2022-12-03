@@ -4,7 +4,10 @@ Tarefas realizadas do Módulo 10 - Angular I da Let's Code - Turma 853 | Web Ful
 
 # Exercício de Fixação 1 - (exercise-1 - Entrega até 02/12/2022)
 
-Fazer um Projeto em Angular para treinar conceitos básicos usando Angular e Angular Material.
+- Replicar o projeto em Angular feito em sala de aula (listagem de elementos);
+- Não usar a temática de Todo List, ou seja, pelo menos Model e Componentes deve estar diferentes;
+
+EXTRA (100XP): Usar a diretiva *ngIf de alguma forma no projeto (dica: estilização)
 
 ## Preview
 
