@@ -8,5 +8,5 @@ Fazer um Projeto em Angular para treinar conceitos básicos usando Angular e Ang
 
 ## Preview
 
-https://user-images.githubusercontent.com/98363297/205187612-c196acc9-4795-4f2b-879f-b525c5bbd490.mp4
+https://user-images.githubusercontent.com/98363297/205414739-77fc187f-01bb-4c57-9b47-df1f805bc7ac.mp4
 
