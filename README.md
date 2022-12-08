@@ -35,7 +35,3 @@ PRINCIPAL (700XP)
 EXTRA (300XP)
 - O formulário deve ser validado e mensagens devem aparecer para o usuário;
 - A listagem de itens deve vir do localStorage ou de um JSON Server.
-
-A data de entrega será para segunda-feira da semana que vem, a princípio. Se ficar muito apertado, podem falar comigo por aqui pelo discord ou em sala de aula mesmo!
-
-Abração gente, e me desculpem pela aula de hoje. Aula que vem prometo compensá-los!
