@@ -1,0 +1,55 @@
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header
+    #headercomponent
+    class="card-header"
+    (click)="handleEvents()"
+  >
+    <mat-panel-title class="panel-title">
+      <mat-card-header>
+        <div
+          mat-card-avatar
+          class="header-image"
+          style="
+                background-image: url('{{ this.dog.headerImg }}');
+              "
+        >
+          <mat-icon class="like-icon-header" [toggleLike]="this.dog.liked"
+            >favorite_border</mat-icon
+          >
+        </div>
+        <mat-card-title>{{ this.dog.title }}</mat-card-title>
+        <mat-card-subtitle>{{ this.dog.visited | visited }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-icon class="seen-icon" *ngIf="this.dog.visited">visibility</mat-icon>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <mat-card>
+    <img
+      mat-card-image
+      src="{{ this.dog.srcImg }}"
+      alt="Photo of a {{ this.dog.title }}"
+      class="card-image"
+    />
+    <mat-card-content class="card-content">
+      <p>
+        {{ this.dog.description }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <div class="card-footer">
+    <div class="btn-like-area">
+      <mat-icon
+        class="btn-like-icon"
+        (click)="toggleLike()"
+        [toggleLike]="this.dog.liked"
+      >
+        favorite_border
+      </mat-icon>
+      <span>Like</span>
+    </div>
+    <span class="last-seen"
+      >Last seen {{ this.dog.lastSeen | date : "medium" }}</span
+    >
+  </div>
+</mat-expansion-panel>
