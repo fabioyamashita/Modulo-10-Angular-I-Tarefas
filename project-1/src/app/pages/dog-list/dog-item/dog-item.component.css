@@ -10,8 +10,24 @@
   font-size: 1.2rem;
 }
 
+.edit-icon:hover,
+.delete-icon:hover {
+  cursor: pointer;
+}
+
+.not-seen-icon,
 .seen-icon {
-  color: #262626;
+  color: #7c7c7c;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.not-seen-area,
+.last-seen-area {
+  display: flex;
+  align-items: center;
 }
 
 .card-content {

@@ -1,1 +1,9 @@
-<mat-toolbar><span class="title-center"> Dogsgram</span></mat-toolbar>
+<mat-toolbar>
+  <span class="title-center"> Dogsgram</span>
+  <div class="header-links">
+    <a mat-button [routerLink]="['/list']" routerLinkActive="active">List</a>
+    <a mat-button [routerLink]="['/create']" routerLinkActive="active"
+      >Create</a
+    >
+  </div>
+</mat-toolbar>

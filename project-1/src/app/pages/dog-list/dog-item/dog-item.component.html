@@ -17,10 +17,28 @@
             >favorite_border</mat-icon
           >
         </div>
-        <mat-card-title>{{ this.dog.title }}</mat-card-title>
-        <mat-card-subtitle>{{ this.dog.visited | visited }}</mat-card-subtitle>
+
+        <mat-card-title>
+          {{ this.dog.title }}
+        </mat-card-title>
+
+        <mat-card-subtitle *ngIf="!this.dog.visited">
+          <div class="not-seen-area">
+            <mat-icon class="not-seen-icon">visibility_off</mat-icon>
+            <span>{{ this.dog.visited | visited }}</span>
+          </div>
+        </mat-card-subtitle>
+
+        <mat-card-subtitle *ngIf="this.dog.visited">
+          <div class="last-seen-area">
+            <mat-icon class="seen-icon" *ngIf="this.dog.visited"
+              >visibility</mat-icon
+            >
+            <span>Last seen {{ this.dog.lastSeen | date : "medium" }}</span>
+          </div>
+        </mat-card-subtitle>
       </mat-card-header>
-      <mat-icon class="seen-icon" *ngIf="this.dog.visited">visibility</mat-icon>
+      <mat-icon class="delete-icon">delete</mat-icon>
     </mat-panel-title>
   </mat-expansion-panel-header>
 
@@ -48,8 +66,6 @@
       </mat-icon>
       <span>Like</span>
     </div>
-    <span class="last-seen"
-      >Last seen {{ this.dog.lastSeen | date : "medium" }}</span
-    >
+    <mat-icon class="edit-icon">edit</mat-icon>
   </div>
 </mat-expansion-panel>

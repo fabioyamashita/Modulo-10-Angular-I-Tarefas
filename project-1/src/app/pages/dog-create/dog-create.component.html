@@ -1,0 +1,39 @@
+<form [formGroup]="createForm" class="form" (ngSubmit)="onSubmit()">
+  <h2 class="heading-primary">Create a new card</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Dog's type</mat-label>
+    <input matInput placeholder="Enter a dog's type" formControlName="title" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      placeholder="Write a description here"
+      formControlName="description"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Profile Picture URL</mat-label>
+    <input
+      matInput
+      placeholder="https://material.angular.io/assets/img/examples/shiba1.jpg"
+      formControlName="headerImg"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Card Picture URL</mat-label>
+    <input
+      matInput
+      placeholder="https://material.angular.io/assets/img/examples/shiba2.jpg"
+      formControlName="srcImg"
+    />
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Create</button>
+
+  <!-- <p>Form Status: {{ createForm.status }}</p> -->
+</form>

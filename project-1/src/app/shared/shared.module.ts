@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '../material/material.module';
 
@@ -10,7 +11,7 @@ import { ToggleLikeDirective } from './directives/toggle-like.directive';
 
 @NgModule({
   declarations: [HeaderComponent, VisitedPipe, ToggleLikeDirective],
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, RouterModule],
   exports: [HeaderComponent, VisitedPipe, ToggleLikeDirective],
 })
 export class SharedModule {}

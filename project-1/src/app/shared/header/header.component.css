@@ -1,4 +1,16 @@
-.title-center {
-  flex: 1 1 auto !important;
-  text-align: center !important;
+.active {
+  background-color: rgb(223, 223, 223);
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 2rem;
+  align-items: center;
+}
+
+.header-links {
+  display: flex;
+  gap: 1rem;
 }
