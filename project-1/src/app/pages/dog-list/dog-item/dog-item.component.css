@@ -10,9 +10,19 @@
   font-size: 1.2rem;
 }
 
+/* mat-expansion-panel {
+  pointer-events: none;
+}
+
+.edit-icon,
+.delete-icon {
+  pointer-events: auto;
+} */
+
 .edit-icon:hover,
 .delete-icon:hover {
   cursor: pointer;
+  color: #7c7c7c;
 }
 
 .not-seen-icon,
@@ -69,4 +79,10 @@ mat-card {
   cursor: pointer;
   font-size: 1.55rem;
   transition: all 0.4s;
+}
+
+.crud-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }

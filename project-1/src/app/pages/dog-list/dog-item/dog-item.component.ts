@@ -5,7 +5,12 @@ import {
   ElementRef,
   AfterViewInit,
 } from '@angular/core';
+
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-confirm-delete.component';
+
 import Dog from 'src/app/models/Dog';
+import { DogService } from 'src/app/services/dog.service';
 
 @Component({
   selector: 'app-dog-item',
@@ -13,14 +18,19 @@ import Dog from 'src/app/models/Dog';
   styleUrls: ['./dog-item.component.css'],
 })
 export class DogItemComponent implements AfterViewInit {
-  @ViewChild('headercomponent', { read: ElementRef }) el!: ElementRef;
+  constructor(private dogService: DogService, private dialog: MatDialog) {}
+
+  @ViewChild('headercomponent', { read: ElementRef }) headerEl!: ElementRef;
 
   ngAfterViewInit(): void {}
 
   @Input() dog: Dog = {
+    id: new Date().getTime(),
     title: 'Dog not specified',
-    headerImg: '',
-    srcImg: '',
+    srcImg:
+      'https://images.unsplash.com/photo-1523480717984-24cba35ae1ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    headerImg:
+      'https://images.unsplash.com/photo-1625794084867-8ddd239946b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     description: '',
     visited: false,
     lastSeen: new Date(),
@@ -30,7 +40,7 @@ export class DogItemComponent implements AfterViewInit {
   handleEvents(): void {
     this.checkVisited();
 
-    if (!this.el.nativeElement.classList.contains('mat-expanded'))
+    if (!this.headerEl.nativeElement.classList.contains('mat-expanded'))
       this.updateLastSeen();
   }
 
@@ -45,5 +55,29 @@ export class DogItemComponent implements AfterViewInit {
 
   toggleLike(): void {
     this.dog.liked = !this.dog.liked;
+  }
+
+  deleteDog(): void {
+    this.dogService.deleteDog(this.dog.id);
+  }
+
+  openDeleteDialog(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
+    this.dialog
+      .open(DialogConfirmDeleteComponent, {
+        width: '300px',
+        enterAnimationDuration,
+        exitAnimationDuration,
+
+        data: {
+          name: this.dog.title,
+        },
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (result) this.deleteDog();
+      });
   }
 }

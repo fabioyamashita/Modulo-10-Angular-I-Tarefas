@@ -8,6 +8,8 @@
   padding: 1.2rem;
   margin: 0 auto;
 
+  gap: 0.8rem;
+
   /* border: 1px solid #7c7c7c; */
 }
 
@@ -16,5 +18,9 @@ mat-form-field {
 }
 
 .heading-primary {
-  padding-bottom: 0.6rem;
+  padding-top: 0.4rem;
+}
+
+mat-error {
+  margin-bottom: 1rem;
 }

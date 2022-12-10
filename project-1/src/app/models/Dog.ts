@@ -1,4 +1,5 @@
 export default class Dog {
+  id: number;
   title: string;
   headerImg: string;
   srcImg: string;
@@ -8,16 +9,19 @@ export default class Dog {
   liked: boolean;
 
   constructor(
-    title: string,
-    headerImg: string,
-    srcImg: string,
-    description: string
+    title: string = '',
+    headerImg: string = '',
+    srcImg: string = '',
+    description: string = '',
+    visited: boolean = false,
+    liked: boolean = false
   ) {
+    this.id = new Date().getTime();
     this.title = title;
     this.headerImg = headerImg;
     this.srcImg = srcImg;
     this.description = description;
-    this.visited = false;
-    this.liked = false;
+    this.visited = visited;
+    this.liked = liked;
   }
 }

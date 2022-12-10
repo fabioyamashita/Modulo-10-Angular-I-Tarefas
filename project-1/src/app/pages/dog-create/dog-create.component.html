@@ -1,9 +1,15 @@
-<form [formGroup]="createForm" class="form" (ngSubmit)="onSubmit()">
+<form
+  *ngIf="createForm"
+  [formGroup]="createForm"
+  class="form"
+  (ngSubmit)="onSubmitForm()"
+>
   <h2 class="heading-primary">Create a new card</h2>
 
   <mat-form-field appearance="outline">
     <mat-label>Dog's type</mat-label>
     <input matInput placeholder="Enter a dog's type" formControlName="title" />
+    <mat-error>Enter a valid name</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
@@ -13,6 +19,7 @@
       placeholder="Write a description here"
       formControlName="description"
     ></textarea>
+    <mat-error>Enter a description</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
@@ -22,6 +29,7 @@
       placeholder="https://material.angular.io/assets/img/examples/shiba1.jpg"
       formControlName="headerImg"
     />
+    <mat-error>Enter a valid URL</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
@@ -31,9 +39,18 @@
       placeholder="https://material.angular.io/assets/img/examples/shiba2.jpg"
       formControlName="srcImg"
     />
+    <mat-error>Enter a valid URL</mat-error>
   </mat-form-field>
 
-  <button type="submit" mat-raised-button color="primary">Create</button>
+  <button
+    type="submit"
+    mat-raised-button
+    color="primary"
+    [disabled]="!createForm.valid"
+  >
+    Create
+  </button>
 
   <!-- <p>Form Status: {{ createForm.status }}</p> -->
+  <p>Form Result: {{ formResult }}</p>
 </form>

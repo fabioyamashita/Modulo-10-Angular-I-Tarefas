@@ -38,7 +38,6 @@
           </div>
         </mat-card-subtitle>
       </mat-card-header>
-      <mat-icon class="delete-icon">delete</mat-icon>
     </mat-panel-title>
   </mat-expansion-panel-header>
 
@@ -66,6 +65,11 @@
       </mat-icon>
       <span>Like</span>
     </div>
-    <mat-icon class="edit-icon">edit</mat-icon>
+    <div class="crud-icons">
+      <mat-icon class="edit-icon">edit</mat-icon>
+      <mat-icon class="delete-icon" (click)="openDeleteDialog('0ms', '0ms')"
+        >delete</mat-icon
+      >
+    </div>
   </div>
 </mat-expansion-panel>
