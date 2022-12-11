@@ -1,0 +1,57 @@
+<div mat-dialog-content>
+  <h1 mat-dialog-title class="heading-primary">Edit card</h1>
+  <form *ngIf="editForm" [formGroup]="editForm" class="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Dog's type</mat-label>
+      <input
+        matInput
+        placeholder="Enter a dog's type"
+        formControlName="title"
+      />
+      <mat-error>Enter a valid name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        placeholder="Write a description here"
+        formControlName="description"
+        rows="6"
+      ></textarea>
+      <mat-error>Enter a description</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Profile Picture URL (Optional)</mat-label>
+      <input
+        matInput
+        placeholder="https://material.angular.io/assets/img/examples/shiba1.jpg"
+        formControlName="headerImg"
+      />
+      <mat-error>Enter a valid URL</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Card Picture URL (Optional)</mat-label>
+      <input
+        matInput
+        placeholder="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        formControlName="srcImg"
+      />
+      <mat-error>Enter a valid URL</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="actions">
+  <button mat-button mat-dialog-close (click)="onCancelClick()">Cancel</button>
+  <button
+    mat-button
+    mat-dialog-close
+    cdkFocusInitial
+    (click)="onSaveChangesClick()"
+    [disabled]="!editForm.valid"
+  >
+    Save Changes
+  </button>
+</div>

@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DogCreateComponent } from './dog-create/dog-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DialogConfirmDeleteComponent } from './dog-list/dog-item/dialog-confirm-delete/dialog-confirm-delete.component';
+import { DogEditComponent } from './dog-edit/dog-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DialogConfirmDeleteComponent } from './dog-list/dog-item/dialog-confirm
     PageNotFoundComponent,
     DogCreateComponent,
     DialogConfirmDeleteComponent,
+    DogEditComponent,
   ],
   imports: [CommonModule, MaterialModule, SharedModule, ReactiveFormsModule],
   exports: [DogListComponent, DogItemComponent],

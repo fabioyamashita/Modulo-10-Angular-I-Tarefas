@@ -11,6 +11,7 @@ import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-con
 
 import Dog from 'src/app/models/Dog';
 import { DogService } from 'src/app/services/dog.service';
+import { DogEditComponent } from '../../dog-edit/dog-edit.component';
 
 @Component({
   selector: 'app-dog-item',
@@ -61,15 +62,14 @@ export class DogItemComponent implements AfterViewInit {
     this.dogService.deleteDog(this.dog.id);
   }
 
-  openDeleteDialog(
-    enterAnimationDuration: string,
-    exitAnimationDuration: string
-  ): void {
+  updateDog(updatedData: Object): void {
+    this.dogService.updateDog(this.dog.id, updatedData);
+  }
+
+  openDeleteDialog(): void {
     this.dialog
       .open(DialogConfirmDeleteComponent, {
         width: '300px',
-        enterAnimationDuration,
-        exitAnimationDuration,
 
         data: {
           name: this.dog.title,
@@ -78,6 +78,22 @@ export class DogItemComponent implements AfterViewInit {
       .afterClosed()
       .subscribe((result) => {
         if (result) this.deleteDog();
+      });
+  }
+
+  openEditDialog(): void {
+    this.dialog
+      .open(DogEditComponent, {
+        data: {
+          title: this.dog.title,
+          description: this.dog.description,
+          headerImg: this.dog.headerImg,
+          scrImg: this.dog.srcImg,
+        },
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (result) this.updateDog(result);
       });
   }
 }

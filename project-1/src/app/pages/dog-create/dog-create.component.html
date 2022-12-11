@@ -18,12 +18,13 @@
       matInput
       placeholder="Write a description here"
       formControlName="description"
+      rows="4"
     ></textarea>
     <mat-error>Enter a description</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>Profile Picture URL</mat-label>
+    <mat-label>Profile Picture URL (Optional)</mat-label>
     <input
       matInput
       placeholder="https://material.angular.io/assets/img/examples/shiba1.jpg"
@@ -33,7 +34,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>Card Picture URL</mat-label>
+    <mat-label>Card Picture URL (Optional)</mat-label>
     <input
       matInput
       placeholder="https://material.angular.io/assets/img/examples/shiba2.jpg"
@@ -50,7 +51,4 @@
   >
     Create
   </button>
-
-  <!-- <p>Form Status: {{ createForm.status }}</p> -->
-  <p>Form Result: {{ formResult }}</p>
 </form>

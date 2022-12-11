@@ -66,8 +66,16 @@
       <span>Like</span>
     </div>
     <div class="crud-icons">
-      <mat-icon class="edit-icon">edit</mat-icon>
-      <mat-icon class="delete-icon" (click)="openDeleteDialog('0ms', '0ms')"
+      <mat-icon
+        class="edit-icon"
+        (click)="openEditDialog()"
+        matTooltip="Edit Card"
+        >edit</mat-icon
+      >
+      <mat-icon
+        class="delete-icon"
+        (click)="openDeleteDialog()"
+        matTooltip="Delete Card"
         >delete</mat-icon
       >
     </div>

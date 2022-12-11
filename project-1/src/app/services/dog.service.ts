@@ -64,13 +64,13 @@ export class DogService {
   }
 
   postDogs(newDog: Dog): void {
-    // if (newDog.headerImg == '')
-    //   newDog.headerImg =
-    //     'https://images.unsplash.com/photo-1595781590027-7cc3affcff76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=762&q=80';
+    if (newDog.headerImg == '')
+      newDog.headerImg =
+        'https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80';
 
-    // if (newDog.srcImg == '')
-    //   newDog.srcImg =
-    //     'https://images.unsplash.com/photo-1590419690008-905895e8fe0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80';
+    if (newDog.srcImg == '')
+      newDog.srcImg =
+        'https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80';
 
     this.dogList.push(newDog);
   }
@@ -78,5 +78,10 @@ export class DogService {
   deleteDog(id: number): void {
     let index: number = this.dogList.findIndex((dog) => dog.id == id);
     this.dogList.splice(index, 1);
+  }
+
+  updateDog(id: number, updatedData: Object): void {
+    let index: number = this.dogList.findIndex((dog) => dog.id == id);
+    this.dogList[index] = Object.assign({}, this.dogList[index], updatedData);
   }
 }
