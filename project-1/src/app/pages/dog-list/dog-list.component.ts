@@ -15,6 +15,9 @@ export class DogListComponent implements OnInit {
   dogList: Dog[] = [];
 
   ngOnInit(): void {
-    this.dogList = this.dogService.getDogs();
+    this.dogService.getDogs().subscribe({
+      next: (dogs) => (this.dogList = dogs),
+      error: (error) => console.log(error),
+    });
   }
 }

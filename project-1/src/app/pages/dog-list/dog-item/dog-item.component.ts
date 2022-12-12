@@ -4,6 +4,8 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -38,6 +40,9 @@ export class DogItemComponent implements AfterViewInit {
     liked: false,
   };
 
+  @Output()
+  onComponentChange = new EventEmitter();
+
   handleEvents(): void {
     this.checkVisited();
 
@@ -45,25 +50,53 @@ export class DogItemComponent implements AfterViewInit {
       this.updateLastSeen();
   }
 
+  transformIntoDogObject(object: object): Dog {
+    return Object.assign({}, this.dog, object);
+  }
+
   checkVisited(): void {
     if (this.dog.visited) return;
     this.dog.visited = true;
+
+    let updatedData: Dog = this.transformIntoDogObject({
+      visited: this.dog.visited,
+    });
+
+    this.dogService.updateDog(this.dog.id, updatedData).subscribe();
   }
 
   updateLastSeen(): void {
     this.dog.lastSeen = new Date();
+
+    let updatedData: Dog = this.transformIntoDogObject({
+      lastSeen: this.dog.lastSeen,
+    });
+
+    this.dogService.updateDog(this.dog.id, updatedData).subscribe();
   }
 
   toggleLike(): void {
     this.dog.liked = !this.dog.liked;
+
+    let updatedData: Dog = this.transformIntoDogObject({
+      liked: this.dog.liked,
+    });
+
+    this.dogService.updateDog(this.dog.id, updatedData).subscribe();
   }
 
   deleteDog(): void {
-    this.dogService.deleteDog(this.dog.id);
+    this.dogService
+      .deleteDog(this.dog.id)
+      .subscribe(() => this.onComponentChange.emit(null));
   }
 
-  updateDog(updatedData: Object): void {
-    this.dogService.updateDog(this.dog.id, updatedData);
+  updateDog(objectResult: Object): void {
+    let updatedData: Dog = this.transformIntoDogObject(objectResult);
+
+    this.dogService
+      .updateDog(this.dog.id, updatedData)
+      .subscribe(() => this.onComponentChange.emit(null));
   }
 
   openDeleteDialog(): void {
@@ -93,7 +126,9 @@ export class DogItemComponent implements AfterViewInit {
       })
       .afterClosed()
       .subscribe((result) => {
-        if (result) this.updateDog(result);
+        if (result) {
+          this.updateDog(result);
+        }
       });
   }
 }

@@ -1,5 +1,9 @@
 <div class="dog-container">
   <mat-accordion>
-    <app-dog-item *ngFor="let dog of dogList" [dog]="dog"></app-dog-item>
+    <app-dog-item
+      *ngFor="let dog of dogList"
+      [dog]="dog"
+      (onComponentChange)="ngOnInit()"
+    ></app-dog-item>
   </mat-accordion>
 </div>
