@@ -10,15 +10,6 @@
   font-size: 1.2rem;
 }
 
-/* mat-expansion-panel {
-  pointer-events: none;
-}
-
-.edit-icon,
-.delete-icon {
-  pointer-events: auto;
-} */
-
 .edit-icon:hover,
 .delete-icon:hover {
   cursor: pointer;

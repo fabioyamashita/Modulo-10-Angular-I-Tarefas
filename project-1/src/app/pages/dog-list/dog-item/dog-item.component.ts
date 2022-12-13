@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
-import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-confirm-delete.component';
+import { DialogConfirmDeleteComponent } from '../../dog-delete/dialog-confirm-delete/dialog-confirm-delete.component';
 
 import Dog from 'src/app/models/Dog';
 import { DogService } from 'src/app/services/dog.service';

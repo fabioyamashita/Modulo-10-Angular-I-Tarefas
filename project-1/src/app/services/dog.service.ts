@@ -39,7 +39,7 @@ export class DogService {
     return this.http.delete(`${this.baseUrl}/${id}`, this.httpOptions);
   }
 
-  updateDog(id: number, updatedData: Object): Observable<Dog> {
+  updateDog(id: number, updatedData: Dog): Observable<Dog> {
     return this.http.put<Dog>(
       `${this.baseUrl}/${id}`,
       updatedData,
